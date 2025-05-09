@@ -8,6 +8,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import NewsDetails from "../pages/NewsDetails";
 import { ClipLoader } from "react-spinners";
 import PrivateRoutes from "../Provider/PrivateRoutes";
+import Loading from "../pages/Loading";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         path: "/category/:id",
         element: <CategoryNews></CategoryNews>,
         loader: () => fetch("/news.json"),
-        hydrateFallbackElement: <ClipLoader></ClipLoader>,
+        hydrateFallbackElement: <Loading></Loading>,
       },
     ],
   },
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
       </PrivateRoutes>
     ),
     loader: () => fetch("/news.json"),
-    hydrateFallbackElement: <ClipLoader></ClipLoader>,
+    hydrateFallbackElement: <Loading></Loading>,
   },
   {
     path: "/*",
